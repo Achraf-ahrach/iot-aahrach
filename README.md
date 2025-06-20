@@ -1,50 +1,31 @@
 # iot-aahrach
 
-Minimal K3d + Argo CD project for deploying a containerized app using GitOps.
-
-# iot-aahrach
-
-This project is part of the **Inception-of-Things** curriculum.
+This project is part of the **Inception-of-Things** training.
 
 It uses:
 
-- **K3d**: to run a local Kubernetes cluster inside Docker
-- **Argo CD**: to deploy an app automatically using Git (GitOps)
+- **K3d** to create a local Kubernetes cluster.
+- **Argo CD** to deploy an application using Git (GitOps).
 
-## 📦 Application
+## 📦 App Information
 
-We are deploying the app `wil42/playground` from DockerHub.
+This app uses a Docker image from [DockerHub](https://hub.docker.com/r/wil42/playground).
 
-- It runs on port `8888`
-- It has two versions: `v1` and `v2`
+- Image: `wil42/playground`
+- Version: `v1`
+- Port: `8888`
 
-The app is deployed to the **dev** namespace using Argo CD.
+## 📁 Files
 
-## 📁 Project Structure
+- `deployment.yaml`: Deploys the app to the Kubernetes `dev` namespace.
+- `service.yaml`: Exposes the app inside the cluster on port 80.
 
-iot-aahrach/
+## ✅ How It Works
 
-├── app/
-
-│ └── deployment.yaml # Kubernetes manifest for the app
-
-└── app-of-app.yaml # Argo CD Application definition
-
-## 🚀 How It Works
-
-1. Argo CD watches this GitHub repo.
-2. When you update `deployment.yaml`, Argo CD updates the app in your cluster.
-
-## ✅ Goal
-
-- Understand GitOps with Argo CD
-- Deploy and update apps using Git and Kubernetes
-
-## 🔗 Docker Image
-
-Using Wil's image:
-https://hub.docker.com/r/wil42/playground
+1. Argo CD reads the files from this GitHub repository.
+2. It applies the `deployment.yaml` and `service.yaml` files.
+3. The app runs in the **dev** namespace.
 
 ## 👨‍💻 Author
 
-Ashraf Ahrash (aahrach)
+Achraf Ahrach (`aahrach`)
